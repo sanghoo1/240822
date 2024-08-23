@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+body {
+  font-family: '함초롬바탕','바탕',serif;
+  color: blueviolet;
+}
+/* form 관련 요소들은 기본 스타일이 존재하기 때문에 직접 적용을 해줘야한다*/
+
+form > fieldset{
+  color: blue;
+  background-color: aliceblue;
+  text-align: center;
+  font-size: 20px;
+
+}
+form > fieldset > legend {
+  background-color: darkolivegreen;
+  color: #fff;
+  text-align: left;
+}
+
+
+/*
+  속성 선택자: 요소[속성="값"]
+  input요소들 중에 type의 값이 text인 선택자
+ */
+form > fieldset > input[type="text"] {
+  font-family: '나눔고딕','맑은 고딕',돋움,sans-serif;
+  color: crimson;
+}
+form > fieldset > input[type="text"]::placeholder {
+  color: blueviolet;
+}
+button[type=submit] {
+  background-color: blue;
+  color: #fff;
+  font-size: 20px;
+  font-family:'나눔고딕','맑은 고딕',돋움,sans-serif;
+}
+button[type=submit]:hover{
+  background-color: chocolate;
+  cursor: pointer; /* 마우스 커서 모양 변경*/
+}
+/*  : checked 체크박스나 라디오버튼에 체크가 되면 실행*/
+/*
+  인접 형제 선택자 :
+    선택자 + 선택자
+    기준 요소 바로 뒤에 오는 형제 관계 선택자 단 하나만
+  일반 형제 선택자 :
+    선택자 ~ 선택자
+    기준 요소 뒤에 오는 모든 형제 관계 선택자   
+*/
+/*  ~ : input[name=check1] 뒤에 나오는 형제인 label 전부에 적용*/
+form > fieldset > input[name=check1]:checked + label{
+  /* appearance: none;  form과 관련된 요소들의 기본 스타일 제어*/
+  background-color: darkred;
+}
+
+/*
+  accent-color 속성
+  input type=checkbox, radio, range, progress 컨트롤 값 제어
+*/
+form > fieldset > input[type=checkbox],
+form > fieldset > progress[max],
+form > fieldset > input[id=userRange] {
+  accent-color: #d10363;
+}
+/* 다중 선택자 : 여러 개의 선택자를 작성할 경우 쉼표로 구분 */ 
